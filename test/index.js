@@ -4,7 +4,37 @@ var _ = require('lodash'),
 var bs = require('../src/index.js');
 
 describe('bikram-sambat', function() {
-  describe('#str_toBik()', function() {
+  describe('#toBikramSambatWestern()', function() {
+    _.forIn({
+      // gregorian -> bikram
+      '1950-04-13': '२००७-०१-०१',
+    }, function(expectedBikram, gregorian) {
+
+      it('should convert ' + gregorian + ' AD => ' + expectedBikram + ' BS', function() {
+
+        // expect
+        assert.equal(bs.toBikramSambat(gregorian), expectedBikram);
+
+      });
+    });
+  });
+
+  describe.only('#toBikramSambatLetters()', function() {
+    _.forIn({
+      // gregorian -> bikram
+      '1950-04-13': '२००७ बैशाख १',
+    }, function(expectedBikram, gregorian) {
+
+      it('should convert ' + gregorian + ' AD => ' + expectedBikram + ' BS', function() {
+
+        // expect
+        assert.equal(bs.toBikramSambatLetters(gregorian), expectedBikram);
+
+      });
+    });
+  });
+
+  describe('#toBikramSambatWestern()', function() {
     _.forIn({
       // gregorian -> bikram
       '1950-04-13': '2007-01-01',
@@ -30582,7 +30612,7 @@ describe('bikram-sambat', function() {
       it('should convert ' + gregorian + ' AD => ' + expectedBikram + ' BS', function() {
 
         // expect
-        assert.equal(bs.str_toBik(gregorian), expectedBikram);
+        assert.equal(bs.toBikramSambatWestern(gregorian), expectedBikram);
 
       });
 
