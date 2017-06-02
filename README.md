@@ -1,3 +1,9 @@
+Please use https://github.com/medic/bikram-sambat as main repository
+================
+
+
+
+
 bikram-sambat.js
 ================
 
